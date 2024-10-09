@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Web App
+## Description
+The Web App is following the description made by the assignment. At the center of the screen there are two buttons **Get Another Quote** and **Show Previous Quote**. The first button activates the python script working with the OpenAI API and will make a quote appear below the buttons and each time the quote will be different. The second button will toggle the previous quotes created during the current session. When the button will be pressed the first time the previous generated quotes will be shown just below the current code and when pressed again the list of quotes will dissapear. Moreover if the list of quotes is quite long, a scrollbar will appear with the purpose of making the page not too overwhelmed. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used
+The Web App is done using for the frontend part React and CSS that can be found in the respective files **src/App.css** and **src/App.js**. For the backend of the Web App, Python was used mainly for the API integration and the backend server for the python script itself (the code can be found in **llm_api.py** and **run_app_backend.py**). The styling of the page and the responsive layout was done with the use of CSS. Also to fetch a new quote without refreshing the page AJAX wasn't used, however a library that can be used with React was used, more specifically **axios**. This library and React actually helps with changing the certain parts of the Web Page without the need to refresh the page itself, in this case fetching a new quote without refreshing the page. Moreover, with the use of React the quotes are saved in the frontend and taken from the memory of the current session.
 
-## Available Scripts
+## How to Set Up and run the Project
+To set up the project there may be needed to install one or more dependencies from the following list:
+### React
+``` bash
+npm install react
+```
+### React-Dom
+``` bash
+npm install react-dom
+```
+### Axios
+``` bash
+npm install axios
+```
+### Flask
+``` bash
+pip install -r flask
+```
 
-In the project directory, you can run:
+### Flask-cors
+``` bash
+pip install -r flask-cors
+```
 
-### `npm start`
+### Jsonify
+``` bash
+pip install -r jsonify
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### OpenAI
+``` bash
+pip install openai
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+After the dependencies above are correctly installed and functional the next steps are required. 
+Open two terminals and in the first one and run the command ```bash python run_app_backend.py ``` and afterwards in the second terminal run the command ```bash npm start ```. These step will make the project to be launched in a browser. **NOTE**: Be sure to respect the order of the commands and don't forget to change the name of the environment variable(can be found in the **llm_api.py** file on line 6) for the API_key for the LLM. 
